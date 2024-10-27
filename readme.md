@@ -132,14 +132,7 @@ Contributions are welcome! Please submit pull requests, and feel free to open is
 
 This project is licensed under the MIT License.
 
----
 
-## 📬 Contact
-
-If you have any questions or need help, feel free to reach out at:
-
-- **Email**: support@mantrachain.com
-- **Telegram**: [Join our Telegram Group](https://t.me/MantraChain)
 
 ---
 
