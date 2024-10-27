@@ -19,6 +19,23 @@ async function callRpc(endpoint, params = "") {
   }
 }
 
+// Command to get address information
+bot.onText(/\/address (.+)/, async (msg, match) => {
+  const chatId = msg.chat.id;
+  const address = match[1]; // Get address from the command
+
+  // Manually encode the address if needed (depends on chain setup)
+  const encodedAddress = Buffer.from(address).toString("hex");
+
+  // Make the ABCI query for the address info
+  const result = await callRpc(
+    "abci_query",
+    `?path=/store/acc/key&data=${encodedAddress}&prove=false`
+  );
+
+  bot.sendMessage(chatId, JSON.stringify(result, null, 2));
+});
+
 // Command to get ABCI Info
 bot.onText(/\/abci_info/, async (msg) => {
   const chatId = msg.chat.id;
